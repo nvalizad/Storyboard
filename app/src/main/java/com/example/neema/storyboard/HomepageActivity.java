@@ -8,6 +8,6 @@ public class HomepageActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.home_screen_OLDVERSION);
+        setContentView(R.layout.homescreen);
     }
 }
