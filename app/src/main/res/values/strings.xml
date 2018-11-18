@@ -84,4 +84,8 @@
     <string name="email_not_valid">Not a valid email</string>
     <string name="title_activity_free_write">FreeWriteActivity</string>
 
+    <!-- Default strings for the homepage (These should be deleted once design is finalized (BQ)-->
+    <string name="add_card">+</string>
+    <string name="bio_default_text">Placeholder for user bio description</string>
+
 </resources>
