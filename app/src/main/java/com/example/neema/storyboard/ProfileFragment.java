@@ -66,6 +66,7 @@ public class ProfileFragment extends Fragment{
                         return true;
                     case R.id.promptOption:
                         Toast.makeText(getActivity(), "prompt selected", Toast.LENGTH_SHORT).show();
+                        startActivity(new Intent(getActivity(), PromptActivity.class));
                         return true;
                     default:
                         return false;

@@ -29,7 +29,11 @@
         <activity
             android:name=".FreeWriteActivity"
             android:label="@string/title_activity_free_write"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".PromptActivity"
+            android:label="@string/title_activity_free_write"
+            android:theme="@style/AppTheme.NoActionBar" />
     </application>
 
 </manifest>
