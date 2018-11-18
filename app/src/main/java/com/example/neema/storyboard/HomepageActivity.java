@@ -23,8 +23,4 @@ public class HomepageActivity extends AppCompatActivity {
 
     protected void newPostButtonPressed() {
     }
-
-    public void weeklyChallengeTap (View v) {
-        startActivity(new Intent(this, WeeklyChallengeActivity.class));
-    }
 }
