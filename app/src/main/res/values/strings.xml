@@ -77,4 +77,7 @@
     <string name="email_required">Email is required</string>
     <string name="email_not_valid">Not a valid email</string>
 
+    <!-- Weekly Challenge Strings-->
+    <string name="weekly_challenge_header"><u>Weekly Challenge</u></string>
+
 </resources>
