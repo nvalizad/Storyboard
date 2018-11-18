@@ -4,6 +4,8 @@ import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.text.TextUtils;
+import android.util.Patterns;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -13,6 +15,7 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseAuthException;
 
 public class LoginActivity extends AppCompatActivity {
 
@@ -31,7 +34,19 @@ public class LoginActivity extends AppCompatActivity {
         passwordInput = findViewById(R.id.passwordLoginInput);
     }
     protected void loginPressed(View v) {
-        loginRequest(emailInput.getText().toString(), passwordInput.getText().toString());
+        String emailString = emailInput.getText().toString();
+        if (TextUtils.isEmpty(emailInput.getText())) {
+            emailInput.setError("Required");
+        }
+        else if (TextUtils.isEmpty(passwordInput.getText())) {
+            passwordInput.setError("Required");
+        }
+        else if (!Patterns.EMAIL_ADDRESS.matcher(emailString).matches()){
+            emailInput.setError("Not a valid email");
+        }
+        else {
+            loginRequest(emailInput.getText().toString(), passwordInput.getText().toString());
+        }
     }
     protected void forgotPasswordPressed(View v) {
         startActivity(new Intent(LoginActivity.this, ForgotPasswordActivity.class));
@@ -47,9 +62,21 @@ public class LoginActivity extends AppCompatActivity {
                     startActivity(new Intent(LoginActivity.this, HomepageActivity.class));
                 }
                 else {
-                    Toast.makeText(getApplicationContext(),
-                            getString(R.string.invalid_login_credentials),
-                            Toast.LENGTH_LONG).show();
+                    String errorCode = ((FirebaseAuthException) task.getException()).getErrorCode();
+                    switch (errorCode) {
+                        case "ERROR_USER_NOT_FOUND":
+                            Toast.makeText(getApplicationContext(), getString(R.string.email_does_not_exist), Toast.LENGTH_LONG).show();
+                            break;
+                        case "ERROR_USER_DISABLED":
+                            Toast.makeText(getApplicationContext(), getString(R.string.account_disabled), Toast.LENGTH_LONG).show();
+                            break;
+                        case "ERROR_WRONG_PASSWORD":
+                            Toast.makeText(getApplicationContext(), getString(R.string.invalid_login_credentials), Toast.LENGTH_LONG).show();
+                            break;
+                        default:
+                            Toast.makeText(getApplicationContext(), getString(R.string.error), Toast.LENGTH_LONG).show();
+                            break;
+                    }
                 }
             }
         });

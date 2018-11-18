@@ -5,9 +5,11 @@ import android.os.Bundle;
 
 public class HomepageActivity extends AppCompatActivity {
 
+    private FlashCardsFragment flashcards;
+    private ProfileFragment profile;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.homescreen);
+        setContentView(R.layout.main_menu);
     }
 }
