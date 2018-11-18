@@ -42,7 +42,8 @@
         android:id="@+id/weeklyChallengeButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Weekly Challenge" />
+        android:text="Weekly Challenge"
+        android:onClick="weeklyChallengeTap"/>
 
     <RelativeLayout
         android:id="@+id/contentContainer"
