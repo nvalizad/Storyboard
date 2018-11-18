@@ -1,8 +1,10 @@
 package com.example.neema.storyboard;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.Button;
+import android.view.View;
 
 public class HomepageActivity extends AppCompatActivity {
 
@@ -20,6 +22,9 @@ public class HomepageActivity extends AppCompatActivity {
     }
 
     protected void newPostButtonPressed() {
+    }
 
+    public void weeklyChallengeTap (View v) {
+        startActivity(new Intent(this, WeeklyChallengeActivity.class));
     }
 }

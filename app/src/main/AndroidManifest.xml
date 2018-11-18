@@ -34,6 +34,7 @@
             android:name=".PromptActivity"
             android:label="@string/title_activity_free_write"
             android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".WeeklyChallengeActivity"></activity>
     </application>
 
 </manifest>
