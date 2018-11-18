@@ -10,9 +10,6 @@ public class HomepageActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.home_screen);
-        //profile = (ProfileFragment) getFragmentManager().findFragmentById(R.id.name);
-        //flashcards = (FlashCardsFragment) getFragmentManager().findFragmentById(R.id.name);
-
+        setContentView(R.layout.main_menu);
     }
 }
