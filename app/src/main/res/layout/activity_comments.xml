@@ -71,17 +71,11 @@
         <ListView
             android:id="@+id/commentsListView"
             android:layout_width="match_parent"
-            android:layout_height="276dp"
+            android:layout_height="match_parent"
             android:layout_below="@+id/commentHeadingRelLayout"
             android:layout_marginTop="118dp">
 
         </ListView>
-        <EditText
-            android:id="@+id/commentType"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_below="@id/commentsListView"
-            />
 
 
     </RelativeLayout>
