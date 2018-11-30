@@ -1,9 +1,5 @@
 package com.example.neema.storyboard;
 
-/**
- * Created by User on 5/1/2017.
- */
-
 public class Comment {
 
     private String comment;

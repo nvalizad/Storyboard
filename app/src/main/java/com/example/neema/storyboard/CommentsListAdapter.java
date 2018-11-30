@@ -1,9 +1,5 @@
 package com.example.neema.storyboard;
 
-/**
- * Created by User on 4/24/2017.
- */
-
 
 import android.content.Context;
 import android.graphics.Bitmap;
@@ -21,10 +17,6 @@ import android.widget.TextView;
 import java.util.ArrayList;
 
 
-/**
- * Created by User on 4/4/2017.
- */
-
 public class CommentsListAdapter extends ArrayAdapter<Comment> {
 
     private static final String TAG = "CustomListAdapter";
@@ -33,20 +25,11 @@ public class CommentsListAdapter extends ArrayAdapter<Comment> {
     private int mResource;
     private int lastPosition = -1;
 
-    /**
-     * Holds variables in a View
-     */
     private static class ViewHolder {
         TextView comment;
         TextView author;
     }
 
-    /**
-     * Default constructor for the PersonListAdapter
-     * @param context
-     * @param resource
-     * @param objects
-     */
     public CommentsListAdapter(Context context, int resource, ArrayList<Comment> objects) {
         super(context, resource, objects);
         mContext = context;
@@ -61,9 +44,7 @@ public class CommentsListAdapter extends ArrayAdapter<Comment> {
         //get the persons information
         String title = getItem(position).getComment();
         String author = getItem(position).getAuthor();
-        String date_updated = getItem(position).getUpdated();
 
-        try{
 
 
             //create the view result for showing the animation
@@ -96,10 +77,6 @@ public class CommentsListAdapter extends ArrayAdapter<Comment> {
 
 
             return convertView;
-        }catch (IllegalArgumentException e){
-            Log.e(TAG, "getView: IllegalArgumentException: " + e.getMessage() );
-            return convertView;
-        }
 
     }
 

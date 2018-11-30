@@ -18,29 +18,13 @@ import android.widget.Toast;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * Created by User on 5/1/2017.
- */
-
 public class CommentsActivity extends AppCompatActivity {
 
     private static final String TAG = "CommentsActivity";
 
-    private static String postURL;
-    private static String postThumbnailURL;
-    private static String postTitle;
-    private static String postAuthor;
-    private static String postUpdated;
-
-    private int defaultImage;
-
-    private String currentFeed;
     private ListView mListView;
 
     private ArrayList<Comment> mComments;
-    private ProgressBar mProgressBar;
-    private TextView progressText;
-
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -73,6 +57,7 @@ public class CommentsActivity extends AppCompatActivity {
         TextView title = (TextView) findViewById(R.id.postTitle);
         TextView author = (TextView) findViewById(R.id.postAuthor);
         TextView updated = (TextView) findViewById(R.id.postUpdated);
+        //TODO SET A LISTENER FOR BUTTON IF WE DECIDE TO USE REPLY BUTTON
         Button btnReply = (Button) findViewById(R.id.btnPostReply);
 
         title.setText("CARD");

@@ -44,7 +44,6 @@
             android:name=".SideMenu"
             android:label="@string/title_activity_side_menu"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
-        <activity android:name=".ViewCard"></activity>
         <activity android:name=".CommentActivity"></activity>
         <activity android:name="CommentsActivity"></activity>
     </application>
