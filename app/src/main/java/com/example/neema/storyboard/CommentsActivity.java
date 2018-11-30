@@ -1,10 +1,13 @@
 package com.example.neema.storyboard;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
+import android.text.InputType;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -58,12 +61,30 @@ public class CommentsActivity extends AppCompatActivity {
         TextView author = (TextView) findViewById(R.id.postAuthor);
         TextView updated = (TextView) findViewById(R.id.postUpdated);
         //TODO SET A LISTENER FOR BUTTON IF WE DECIDE TO USE REPLY BUTTON
-        Button btnReply = (Button) findViewById(R.id.btnPostReply);
+        //Button btnReply = (Button) findViewById(R.id.btnPostReply);
 
         title.setText("CARD");
         author.setText("CARD");
         updated.setText("CARD");
 
+    }
+    protected void replyPressed(View v){
+
+        final EditText commentText = new EditText(this);
+        commentText.setMaxLines(5);
+        AlertDialog dialog = new AlertDialog.Builder(this)
+                .setTitle("Add New Comment")
+                .setView(commentText)
+                .setPositiveButton("Add", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        String task = String.valueOf(commentText.getText());
+                        //TODO: add comment into database and maybe into view
+                    }
+                })
+                .setNegativeButton("Cancel", null)
+                .create();
+        dialog.show();
     }
 
 }

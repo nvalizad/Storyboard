@@ -8,6 +8,8 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
+
+
         <RelativeLayout
             android:id="@+id/commentHeadingRelLayout"
             android:layout_width="match_parent"
@@ -19,6 +21,7 @@
                 android:id="@+id/btnPostReply"
                 android:textAlignment="center"
                 android:text="reply"
+                android:onClick="replyPressed"
                 android:textSize="8sp"
                 android:layout_alignParentRight="true"
                 android:layout_marginRight="10dp"/>
