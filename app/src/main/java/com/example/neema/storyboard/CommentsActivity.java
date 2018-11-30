@@ -58,8 +58,8 @@ public class CommentsActivity extends AppCompatActivity {
     private void init(){
                 mListView = (ListView) findViewById(R.id.commentsListView);
                 mComments = new ArrayList<Comment>();
-                for(int i = 0; i < 10; i++) {
-                    Comment c = new Comment("test" + i, "test" + i, "test" + i, "test" + i);
+                for(int i = 0; i < 20; i++) {
+                    Comment c = new Comment("comment" + i, "comment" + i, "comment" + i, "comment" + i);
                     mComments.add(c);
                 }
                 //TODO GET COMMENTS FROM DB
@@ -75,9 +75,9 @@ public class CommentsActivity extends AppCompatActivity {
         TextView updated = (TextView) findViewById(R.id.postUpdated);
         Button btnReply = (Button) findViewById(R.id.btnPostReply);
 
-        title.setText("test");
-        author.setText("test");
-        updated.setText("Test");
+        title.setText("CARD");
+        author.setText("CARD");
+        updated.setText("CARD");
 
     }
 

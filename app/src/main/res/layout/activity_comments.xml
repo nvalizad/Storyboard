@@ -21,13 +21,11 @@
                 android:text="reply"
                 android:textSize="8sp"
                 android:layout_alignParentRight="true"
-                android:layout_alignBottom="@+id/postThumbnail"
                 android:layout_marginRight="10dp"/>
 
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_toRightOf="@+id/postThumbnail"
                 android:layout_marginLeft="10dp">
 
                 <TextView
@@ -68,12 +66,19 @@
 
 
         <ListView
+            android:id="@+id/commentsListView"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="276dp"
             android:layout_below="@+id/commentHeadingRelLayout"
-            android:id="@+id/commentsListView">
+            android:layout_marginTop="118dp">
 
         </ListView>
+        <EditText
+            android:id="@+id/commentType"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@id/commentsListView"
+            />
 
 
     </RelativeLayout>
