@@ -6,38 +6,48 @@
     android:layout_height="match_parent"
     tools:context=".ViewCard">
 
-    <EditText
-        android:id="@+id/editText3"
-        android:layout_width="389dp"
-        android:layout_height="49dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginBottom="8dp"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:text="Comment Here..."
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
-
     <fragment
         android:id="@+id/fragment"
-        android:name="com.example.neema.storyboard.ViewCardContent"
+        android:name="com.example.neema.storyboard.CommentFragment"
         android:layout_width="391dp"
         android:layout_height="229dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.478"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <fragment
-        android:id="@+id/fragment2"
-        android:name="com.example.neema.storyboard.FlashCardsFragment
-"
-        android:layout_width="388dp"
-        android:layout_height="209dp"
-        tools:layout_editor_absoluteX="-4dp"
-        tools:layout_editor_absoluteY="237dp" />
+    <android.support.constraint.ConstraintLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="0"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="470dp">
+
+        <EditText
+            android:id="@+id/commenttext"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:background="@null"
+            android:hint="Add a comment here"
+            android:inputType="textMultiLine"
+            android:maxLines="4"
+            android:paddingLeft="16dp"
+            android:textSize="16sp"
+            app:layout_constraintBaseline_toBaselineOf="@+id/send"
+            app:layout_constraintEnd_toStartOf="@+id/send"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <Button
+            android:id="@+id/send"
+            android:layout_width="44dp"
+            android:layout_height="31dp"
+            android:layout_marginBottom="1dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/commenttext"></Button>
+
+    </android.support.constraint.ConstraintLayout>
 </android.support.constraint.ConstraintLayout>
