@@ -21,7 +21,7 @@ public class StartupActivity extends AppCompatActivity {
         auth = FirebaseAuth.getInstance();
         if(auth.getCurrentUser() != null) {
             // start activity
-            startActivity(new Intent(StartupActivity.this, CommentActivity.class));
+            startActivity(new Intent(StartupActivity.this, CommentsActivity.class));
         }else {
             setContentView(R.layout.startup);
 

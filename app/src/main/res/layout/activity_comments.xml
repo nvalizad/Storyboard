@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <RelativeLayout
+            android:id="@+id/commentHeadingRelLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <Button
+                android:layout_width="50dp"
+                android:layout_height="30dp"
+                android:id="@+id/btnPostReply"
+                android:textAlignment="center"
+                android:text="reply"
+                android:textSize="8sp"
+                android:layout_alignParentRight="true"
+                android:layout_alignBottom="@+id/postThumbnail"
+                android:layout_marginRight="10dp"/>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@+id/postThumbnail"
+                android:layout_marginLeft="10dp">
+
+                <TextView
+                    android:textStyle="bold"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/postTitle"
+                    android:layout_marginTop="3dp"
+                    android:text="comment"
+                    android:gravity="center"/>
+
+                <TextView
+                    android:textSize="10sp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/postAuthor"
+                    android:layout_marginTop="3dp"
+                    android:text="Author"
+                    android:gravity="center"
+                    android:layout_below="@+id/postTitle"/>
+
+                <TextView
+                    android:textSize="10sp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/postUpdated"
+                    android:layout_marginTop="3dp"
+                    android:text="Last Updated"
+                    android:gravity="center"
+                    android:layout_below="@+id/postAuthor"/>
+
+
+            </RelativeLayout>
+
+
+
+        </RelativeLayout>
+
+
+        <ListView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/commentHeadingRelLayout"
+            android:id="@+id/commentsListView">
+
+        </ListView>
+
+
+    </RelativeLayout>
+
+</android.support.design.widget.CoordinatorLayout>

@@ -46,6 +46,7 @@
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
         <activity android:name=".ViewCard"></activity>
         <activity android:name=".CommentActivity"></activity>
+        <activity android:name="CommentsActivity"></activity>
     </application>
 
 </manifest>
