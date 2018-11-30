@@ -21,7 +21,7 @@ public class StartupActivity extends AppCompatActivity {
         auth = FirebaseAuth.getInstance();
         if(auth.getCurrentUser() != null) {
             // start activity
-            startActivity(new Intent(StartupActivity.this, CommentsActivity.class));
+            startActivity(new Intent(StartupActivity.this, SideMenu.class));
         }else {
             setContentView(R.layout.startup);
 
