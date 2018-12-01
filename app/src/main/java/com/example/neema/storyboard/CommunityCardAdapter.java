@@ -12,6 +12,7 @@ import java.util.List;
 
 public class CommunityCardAdapter extends RecyclerView.Adapter<CommunityCardAdapter.CommunityViewHolder>{
     private List<Card> communityCard;
+    private Card card;
 
     public class CommunityViewHolder extends RecyclerView.ViewHolder  {
         //TODO ADD fields
@@ -37,12 +38,15 @@ public class CommunityCardAdapter extends RecyclerView.Adapter<CommunityCardAdap
 
     @Override
     public void onBindViewHolder(CommunityViewHolder holder, int position) {
-        Card card = communityCard.get(position);
+        card = communityCard.get(position);
         holder.text.setText(card.getTitle());
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                v.getContext().startActivity(new Intent(v.getContext(), CommentsActivity.class));
+                Intent intent = new Intent(v.getContext(), CommentsActivity.class);
+                intent.putExtra("cardId", card.getCardId());
+                intent.putExtra("cardUserId", card.getUid());
+                v.getContext().startActivity(intent);
             }
         });
     }

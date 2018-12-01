@@ -15,16 +15,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
-            <Button
-                android:layout_width="50dp"
-                android:layout_height="30dp"
-                android:id="@+id/btnPostReply"
-                android:textAlignment="center"
-                android:text="reply"
-                android:onClick="replyPressed"
-                android:textSize="8sp"
-                android:layout_alignParentRight="true"
-                android:layout_marginRight="10dp"/>
 
             <RelativeLayout
                 android:layout_width="match_parent"
@@ -51,19 +41,15 @@
                     android:layout_below="@+id/postTitle"/>
 
                 <TextView
-                    android:textSize="10sp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:id="@+id/postUpdated"
-                    android:layout_marginTop="3dp"
-                    android:text="Last Updated"
+                    android:id="@+id/postContent"
                     android:gravity="center"
-                    android:layout_below="@+id/postAuthor"/>
+                    android:layout_below="@id/postAuthor"
+                    android:text="Content"/>
 
 
             </RelativeLayout>
-
-
 
         </RelativeLayout>
 
@@ -71,11 +57,31 @@
         <ListView
             android:id="@+id/commentsListView"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="452dp"
             android:layout_below="@+id/commentHeadingRelLayout"
-            android:layout_marginTop="118dp">
+            android:layout_alignParentStart="true"
+            android:layout_marginStart="0dp"
+            android:layout_marginTop="129dp">
 
         </ListView>
+
+        <EditText
+            android:id="@+id/editText2"
+            android:layout_width="385dp"
+            android:layout_height="45dp"
+            android:layout_below="@+id/commentsListView"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginStart="13dp"
+            android:layout_marginTop="9dp"
+            android:layout_marginEnd="13dp"
+            android:layout_marginBottom="4dp"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:text="Comment Here..."
+            android:focusableInTouchMode="false"
+            android:onClick="replyPressed"/>
 
 
     </RelativeLayout>

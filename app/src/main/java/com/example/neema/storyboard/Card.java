@@ -7,6 +7,7 @@ enum CardType {
 public class Card {
     CardType cardType;
     private String uid;
+    private String username;
     private String cardId;
     private String title;
     private String text;
@@ -14,9 +15,10 @@ public class Card {
     private String weeklyText = "";
 
 
-    public Card(CardType cardType, String uid, String cardId, String title, String text, boolean isPublic) {
+    public Card(CardType cardType, String uid, String username, String cardId, String title, String text, boolean isPublic) {
         this.cardType = cardType;
         this.uid = uid;
+        this.username = username;
         this.cardId = cardId;
         this.title = title;
         this.text = text;
@@ -61,5 +63,9 @@ public class Card {
 
     public String getCardId() {
         return cardId;
+    }
+
+    public String getUsername() {
+        return username;
     }
 }

@@ -3,6 +3,7 @@ package com.example.neema.storyboard;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AlertDialog;
@@ -19,8 +20,11 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 public class FreeWriteActivity extends AppCompatActivity {
 
@@ -32,7 +36,7 @@ public class FreeWriteActivity extends AppCompatActivity {
     TextView visibilityText;
     TextView titleText;
     Switch privacySwitch;
-    private String CardID, Uid, privacyText;
+    private String CardID, Uid, privacyText, currentUsername;
     boolean isPublic;
     boolean isNewCard;
 
@@ -45,7 +49,7 @@ public class FreeWriteActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.freewrite);
         Intent intent = getIntent();
-
+        getCurrentUsername();
         draftText = findViewById(R.id.draftText);
         visibilityText = findViewById(R.id.visibilityText);
         titleText = findViewById(R.id.toolbarTitle);
@@ -113,19 +117,19 @@ public class FreeWriteActivity extends AppCompatActivity {
                         if (!isPublic) {
                             if (isNewCard) {
                                 cardId = mRef.child(currentUser).child("Cards").push().getKey();
-                                Card card = new Card(CardType.FREEWRITE, currentUser, cardId, titleText.getText().toString(), draftText.getText().toString(), false);
+                                Card card = new Card(CardType.FREEWRITE, currentUser, currentUsername, cardId, titleText.getText().toString(), draftText.getText().toString(), false);
                                 mRef.child(currentUser).child("Cards").child(cardId).setValue(card);
                             }
                             else {
                                 cardId = CardID;
-                                Card card = new Card(CardType.FREEWRITE, currentUser, cardId, titleText.getText().toString(), draftText.getText().toString(), false);
+                                Card card = new Card(CardType.FREEWRITE, currentUser, currentUsername, cardId, titleText.getText().toString(), draftText.getText().toString(), false);
                                 mRef.child(currentUser).child("Cards").child(cardId).setValue(card);
                             }
                         }
                         else {
                             if (isNewCard) {
                                 cardId = mRef.child(currentUser).child("Cards").push().getKey();
-                                Card card = new Card(CardType.FREEWRITE, currentUser, cardId, titleText.getText().toString(), draftText.getText().toString(), true);
+                                Card card = new Card(CardType.FREEWRITE, currentUser, currentUsername, cardId, titleText.getText().toString(), draftText.getText().toString(), true);
                                 mRef.child(currentUser).child("Cards").child(cardId).setValue(card);
 
                                 //Adds to community table
@@ -133,7 +137,7 @@ public class FreeWriteActivity extends AppCompatActivity {
                             }
                             else {
                                 cardId = CardID;
-                                Card card = new Card(CardType.FREEWRITE, currentUser, cardId, titleText.getText().toString(), draftText.getText().toString(), true);
+                                Card card = new Card(CardType.FREEWRITE, currentUser, currentUsername, cardId, titleText.getText().toString(), draftText.getText().toString(), true);
                                 mRef.child(currentUser).child("Cards").child(cardId).setValue(card);
 
                                 //Adds to community table
@@ -187,6 +191,19 @@ public class FreeWriteActivity extends AppCompatActivity {
                     }
                 });
                 inputDialog.show();
+            }
+        });
+    }
+    public void getCurrentUsername() {
+        mDatabase.getReference("UserTable").child(currentUser).addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                currentUsername = (String) dataSnapshot.child("username").getValue();
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
             }
         });
     }
