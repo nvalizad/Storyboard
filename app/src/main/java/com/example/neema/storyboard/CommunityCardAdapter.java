@@ -1,15 +1,18 @@
 package com.example.neema.storyboard;
+import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 import android.widget.Toast;
+import android.app.Activity;
 
 import java.util.List;
 
 public class CommunityCardAdapter extends RecyclerView.Adapter<CommunityCardAdapter.CommunityViewHolder>{
     private List<Card> communityCard;
+    private Card card;
 
     public class CommunityViewHolder extends RecyclerView.ViewHolder  {
         //TODO ADD fields
@@ -35,12 +38,15 @@ public class CommunityCardAdapter extends RecyclerView.Adapter<CommunityCardAdap
 
     @Override
     public void onBindViewHolder(CommunityViewHolder holder, int position) {
-        Card card = communityCard.get(position);
+        card = communityCard.get(position);
         holder.text.setText(card.getTitle());
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(v.getContext(),"clicked on card",Toast.LENGTH_LONG).show();
+                Intent intent = new Intent(v.getContext(), CommentsActivity.class);
+                intent.putExtra("cardId", card.getCardId());
+                intent.putExtra("cardUserId", card.getUid());
+                v.getContext().startActivity(intent);
             }
         });
     }

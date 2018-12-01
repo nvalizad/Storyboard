@@ -145,20 +145,21 @@ public class FlashCardsFragment extends Fragment {
         String text = (String) postSnapshot.child("text").getValue();
         boolean isPublic = (boolean) postSnapshot.child("public").getValue();
         String weekly = (String) postSnapshot.child("weeklyText").getValue();
+        String userName = (String) postSnapshot.child("username").getValue();
 
         Card card;
         switch (cardType) {
             case FREEWRITE:
-                card = new Card(CardType.FREEWRITE, uid, cardId, title, text, isPublic);
+                card = new Card(CardType.FREEWRITE, uid, userName, cardId, title, text, isPublic);
                 break;
             case WEEKLY:
                 card = new Card(CardType.WEEKLY, uid, cardId, title, text, isPublic, weekly);
                 break;
             case PROMPT:
-                card = new Card(CardType.PROMPT, uid, cardId, "", text, isPublic);
+                card = new Card(CardType.PROMPT, uid, userName, cardId, "", text, isPublic);
                 break;
             default:
-                card = new Card(CardType.FREEWRITE, uid, cardId, title, text, isPublic);
+                card = new Card(CardType.FREEWRITE, uid, userName, cardId, title, text, isPublic);
         }
         return card;
 

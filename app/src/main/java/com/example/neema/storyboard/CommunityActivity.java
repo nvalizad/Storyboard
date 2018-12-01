@@ -45,9 +45,7 @@ public class CommunityActivity extends AppCompatActivity {
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 for (DataSnapshot postSnapshot : dataSnapshot.getChildren()) {
                     Card card = createCard(postSnapshot);
-                    if (!card.getUid().equals(currentUser)) {
                         communityCards.add(card);
-                    }
                 }
                 mAdapter = new CommunityCardAdapter(communityCards);
                 setupRecyclerView();
@@ -79,19 +77,21 @@ public class CommunityActivity extends AppCompatActivity {
         boolean isPublic = (boolean) postSnapshot.child("public").getValue();
         String weekly = (String) postSnapshot.child("weeklyText").getValue();
         String userId = (String) postSnapshot.child("uid").getValue();
+        String userName = (String) postSnapshot.child("username").getValue();
 
         Card card;
         switch (cardType) {
             case FREEWRITE:
-                card = new Card(CardType.FREEWRITE, userId, cardId, title, text, isPublic);
+                card = new Card(CardType.FREEWRITE, userId, userName, cardId, title, text, isPublic);
                 break;
             case WEEKLY:
                 card = new Card(CardType.WEEKLY, userId, cardId, title, text, isPublic, weekly);
                 break;
             case PROMPT:
-                card = new Card(CardType.PROMPT, userId, cardId, "", text, isPublic);
+                card = new Card(CardType.PROMPT, userId, userName, cardId, "", text, isPublic);
+                break;
             default:
-                card = new Card(CardType.FREEWRITE, userId, cardId, title, text, isPublic);
+                card = new Card(CardType.FREEWRITE, userId, userName, cardId, title, text, isPublic);
         }
         return card;
 
