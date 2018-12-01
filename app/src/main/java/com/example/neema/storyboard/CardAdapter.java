@@ -44,6 +44,10 @@ public class CardAdapter extends RecyclerView.Adapter<CardAdapter.CardViewHolder
             holder.title.setText(card.getText());
             holder.text.setText("");
         }
+        else if (card.cardType == CardType.WEEKLY) {
+            holder.title.setText("Weekly Challenge 1");
+            holder.text.setText(card.getWeeklyText());
+        }
         holder.privacy.setText(boolToString(card.isPublic()));
         holder.type.setText(typeToString(card.getCardType()));
     }

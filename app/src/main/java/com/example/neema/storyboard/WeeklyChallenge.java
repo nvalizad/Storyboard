@@ -19,12 +19,14 @@ public class WeeklyChallenge extends AppCompatActivity {
     private FirebaseDatabase mFirebaseDatabase = FirebaseDatabase.getInstance();
     private DatabaseReference mRef = mFirebaseDatabase.getReference("Weekly");
     DatabaseReference cardRef = mFirebaseDatabase.getReference("CardTable");
+    private String currentUser = FirebaseAuth.getInstance().getCurrentUser().getUid();
+    private String currentUsername;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_weekly_challenge);
-
+        getCurrentUsername();
         mRef.child("Challenge").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
@@ -44,8 +46,22 @@ public class WeeklyChallenge extends AppCompatActivity {
         String weeklyText = ((TextView) findViewById(R.id.challengeText)).getText().toString();
         String uid = mFirebaseAuth.getCurrentUser().getUid();
         String cardId = cardRef.child(uid).child("Cards").push().getKey();
-        Card card = new Card(CardType.WEEKLY, uid, cardId, "", userText, false, weeklyText);
+        Card card = new Card(CardType.WEEKLY, uid, currentUsername, cardId, "Weekly Challenge 1", userText, false, weeklyText);
 
         cardRef.child(uid).child("Cards").child(cardId).setValue(card);
+    }
+
+    public void getCurrentUsername() {
+        mFirebaseDatabase.getReference("UserTable").child(currentUser).addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                currentUsername = (String) dataSnapshot.child("username").getValue();
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
     }
 }
