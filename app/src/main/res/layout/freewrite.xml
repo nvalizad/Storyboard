@@ -76,12 +76,13 @@
         <Switch
             android:id="@+id/privacySwitch"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:checked="false"/>
         <TextView
             android:id="@+id/visibilityText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/public_string"
+            android:text="@string/private_string"
             android:textColor="@color/white" />
     </RelativeLayout>
 

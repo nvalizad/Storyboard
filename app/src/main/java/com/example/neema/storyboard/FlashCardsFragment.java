@@ -97,11 +97,25 @@ public class FlashCardsFragment extends Fragment {
                 switch(type) {
                     case FREEWRITE:
                         //TODO FREWRITE ACTIVITY
-                        startActivity(new Intent(getContext(),FreeWriteActivity.class));
+                        Intent intent = new Intent(getActivity(), FreeWriteActivity.class);
+                        intent.putExtra("Title", card.getTitle());
+                        intent.putExtra("Text", card.getText());
+                        intent.putExtra("uid", card.getUid());
+
+                        intent.putExtra("Pub", card.isPublic());
+                        intent.putExtra("CardId", card.getCardId());
+                        startActivity(intent);
                         break;
                     case PROMPT:
                         //TODO PROMPT ACTIVITY
-                        startActivity(new Intent(getContext(),PromptActivity.class));
+                        Intent in = new Intent(getActivity(), PromptActivity.class);
+                        in.putExtra("Title", card.getTitle());
+                        in.putExtra("Text", card.getText());
+                        in.putExtra("uid", card.getUid());
+
+                        in.putExtra("Pub", card.isPublic());
+                        in.putExtra("CardId", card.getCardId());
+                        startActivity(in);
                         break;
                     case WEEKLY:
                         //TODO IDK IF ANYTHING IS NEEDED
