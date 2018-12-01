@@ -24,18 +24,18 @@
             android:id="@+id/challengeText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Deaf"/>
+            android:text="@string/deaf_string"/>
 
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="textCapSentences|textMultiLine"
-            android:hint="Give it a try"
+            android:hint="@string/give_try_string"
             android:id="@+id/editText"/>
         <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Save Challenge To Card"
+            android:text="@string/save_challenge_string"
             android:onClick="saveChallengeToCard"/>
     </LinearLayout>
 

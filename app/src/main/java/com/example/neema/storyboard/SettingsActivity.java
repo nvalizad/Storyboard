@@ -75,9 +75,9 @@ public class SettingsActivity extends AppCompatActivity{
         usernameString = username.getText().toString();
         if (isInfoEntered(usernameString)){
             mRefUserTable.child(currentUser).child("username").setValue(usernameString);
-            Toast.makeText(this, "Username Changed", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, R.string.username_changed_string, Toast.LENGTH_SHORT).show();
         }
-        else {username.setError("Not a Username");}
+        else {username.setError(getString(R.string.invalid_login_credentials));}
 
     }
 
@@ -96,25 +96,25 @@ public class SettingsActivity extends AppCompatActivity{
                                 @Override
                                 public void onComplete(@NonNull Task<Void> task) {
                                     if (task.isSuccessful()) {
-                                        Toast.makeText(getApplicationContext(), "Password Updated", Toast.LENGTH_LONG).show();
+                                        Toast.makeText(getApplicationContext(), R.string.password_changed_string, Toast.LENGTH_LONG).show();
                                     }
                                 }
                             });
                         }
                         else {
-                            oldPass.setError("Current Password Incorrect");
+                            oldPass.setError(getString(R.string.invalid_curr_pass));
                         }
                     }
                 });
 
 
             }
-            else {newPass.setError("Password needs to be more than 5 characters"); }
+            else {newPass.setError(getString(R.string.error_password_too_short)); }
         }
         else{
-            oldPass.setError("Must enter password");
-            newPass.setError("Must enter password");
-            newPassConfirm.setError("Must enter password");
+            oldPass.setError(getString(R.string.error_enter_password));
+            newPass.setError(getString(R.string.error_enter_password));
+            newPassConfirm.setError(getString(R.string.error_enter_password));
         }
 
     }
@@ -123,8 +123,8 @@ public class SettingsActivity extends AppCompatActivity{
         bioString = changeBio.getText().toString();
         if (isInfoEntered(bioString)){
             mRefUserTable.child(currentUser).child("bio").setValue(bioString);
-            Toast.makeText(this, "Bio Changed", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, R.string.bio_changed_string, Toast.LENGTH_SHORT).show();
         }
-        else{changeBio.setError("Must enter Bio");}
+        else{changeBio.setError(getString(R.string.error_enter_bio));}
     }
 }

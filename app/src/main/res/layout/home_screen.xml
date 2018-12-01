@@ -17,7 +17,7 @@
             android:layout_alignParentEnd="true"
             android:layout_centerVertical="true"
             android:layout_marginEnd="11dp"
-            android:text="Submit" />
+            android:text="@string/submit_string" />
 
         <Button
             android:id="@+id/menuButton"
@@ -26,7 +26,7 @@
             android:layout_alignParentStart="true"
             android:layout_centerVertical="true"
             android:layout_marginStart="16dp"
-            android:text="Menu" />
+            android:text="@string/menu_string" />
 
         <EditText
             android:id="@+id/searchBar"
@@ -34,7 +34,7 @@
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
             android:ems="10"
-            android:hint="Search"
+            android:hint="@string/search_string"
             android:inputType="textPersonName" />
     </RelativeLayout>
 
@@ -42,7 +42,7 @@
         android:id="@+id/weeklyChallengeButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Weekly Challenge" />
+        android:text="@string/weekly_challenge_string" />
 
     <RelativeLayout
         android:id="@+id/contentContainer"

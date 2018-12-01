@@ -123,7 +123,7 @@ public class CommentsActivity extends AppCompatActivity {
                     mRef.child(commentId).setValue(new Comment(task, currentUsername, commentId));
                     }
                 })
-                .setNegativeButton("Cancel", null)
+                .setNegativeButton(R.string.cancel_string, null)
                 .create();
         dialog.show();
     }

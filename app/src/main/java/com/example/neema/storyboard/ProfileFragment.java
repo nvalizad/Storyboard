@@ -65,11 +65,11 @@ public class ProfileFragment extends Fragment{
             public boolean onMenuItemClick(MenuItem menuItem) {
                 switch (menuItem.getItemId()) {
                     case R.id.freeWriteOption:
-                        Toast.makeText(getActivity(), "freewrite selected", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getActivity(), R.string.freewrite_selected_string, Toast.LENGTH_SHORT).show();
                         startActivity(new Intent(getActivity(), FreeWriteActivity.class));
                         return true;
                     case R.id.promptOption:
-                        Toast.makeText(getActivity(), "prompt selected", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getActivity(), R.string.prompt_selected_string, Toast.LENGTH_SHORT).show();
                         startActivity(new Intent(getActivity(), PromptActivity.class));
                         return true;
 
