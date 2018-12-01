@@ -34,7 +34,6 @@ public class PromptActivity extends AppCompatActivity {
 
     EditText draftText;
     TextView visibilityText;
-    TextView titleText;
     Switch privacySwitch;
     boolean isPublic, isNewCard;
     private String CardID, Uid, privacyText, currentUsername;
@@ -50,14 +49,14 @@ public class PromptActivity extends AppCompatActivity {
 
         draftText = findViewById(R.id.draftText);
         visibilityText = findViewById(R.id.visibilityText);
-        titleText = findViewById(R.id.toolbarTitle);
+
         privacySwitch = findViewById(R.id.privacySwitch);
         isPublic = privacySwitch.isChecked();
         isNewCard = true;
         getCurrentUsername();
         if (intent.getExtras()!= null){
             draftText.setText(intent.getStringExtra("Text"));
-            titleText.setText(intent.getStringExtra("Title"));
+
             CardID = intent.getStringExtra("CardId");
             Uid = intent.getStringExtra("uid");
             isPublic = (intent.getBooleanExtra("Pub", false));
@@ -77,7 +76,6 @@ public class PromptActivity extends AppCompatActivity {
         }
 
         FloatingActionButton uploadButton = (FloatingActionButton) findViewById(R.id.uploadButton);
-        FloatingActionButton titleButton = (FloatingActionButton) findViewById(R.id.titleButton);
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -114,19 +112,19 @@ public class PromptActivity extends AppCompatActivity {
                         if (!isPublic) {
                             if (isNewCard) {
                                 cardId = mRef.child(currentUser).child("Cards").push().getKey();
-                                Card card = new Card(CardType.PROMPT, currentUser, currentUsername, cardId, titleText.getText().toString(), draftText.getText().toString(), false);
+                                Card card = new Card(CardType.PROMPT, currentUser, currentUsername, cardId, titlePlaceholderText, draftText.getText().toString(), false);
                                 mRef.child(currentUser).child("Cards").child(cardId).setValue(card);
                             }
                             else {
                                 cardId = CardID;
-                                Card card = new Card(CardType.PROMPT, currentUser, currentUsername, cardId, titleText.getText().toString(), draftText.getText().toString(), false);
+                                Card card = new Card(CardType.PROMPT, currentUser, currentUsername, cardId, titlePlaceholderText, draftText.getText().toString(), false);
                                 mRef.child(currentUser).child("Cards").child(cardId).setValue(card);
                             }
                         }
                         else {
                             if (isNewCard) {
                                 cardId = mRef.child(currentUser).child("Cards").push().getKey();
-                                Card card = new Card(CardType.PROMPT, currentUser, currentUsername, cardId, titleText.getText().toString(), draftText.getText().toString(), true);
+                                Card card = new Card(CardType.PROMPT, currentUser, currentUsername, cardId, titlePlaceholderText, draftText.getText().toString(), true);
                                 mRef.child(currentUser).child("Cards").child(cardId).setValue(card);
 
                                 //Adds to community table
@@ -134,7 +132,7 @@ public class PromptActivity extends AppCompatActivity {
                             }
                             else {
                                 cardId = CardID;
-                                Card card = new Card(CardType.PROMPT, currentUser, currentUsername, cardId, titleText.getText().toString(), draftText.getText().toString(), true);
+                                Card card = new Card(CardType.PROMPT, currentUser, currentUsername, cardId, titlePlaceholderText, draftText.getText().toString(), true);
                                 mRef.child(currentUser).child("Cards").child(cardId).setValue(card);
 
                                 //Adds to community table
@@ -157,38 +155,7 @@ public class PromptActivity extends AppCompatActivity {
             }
         });
 
-        titleButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Toast.makeText(getApplicationContext(),
-                        "Title edit button pressed",
-                        Toast.LENGTH_SHORT).show();
-                AlertDialog.Builder inputDialog = new AlertDialog.Builder(PromptActivity.this);
-                inputDialog.setTitle("Enter New Title:");
 
-                final EditText input = new EditText(PromptActivity.this);
-                input.setPadding(80, 25, 80, 0);
-                input.setBackground(null);
-                input.setInputType(InputType.TYPE_CLASS_TEXT);
-
-                inputDialog.setView(input);
-
-                inputDialog.setNegativeButton("Submit", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialogInterface, int i) {
-                        titlePlaceholderText = input.getText().toString();
-                        titleText.setText(titlePlaceholderText);
-                    }
-                });
-                inputDialog.setPositiveButton("Cancel", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialogInterface, int i) {
-                        dialogInterface.cancel();
-                    }
-                });
-                inputDialog.show();
-            }
-        });
     }
     public void getCurrentUsername() {
         mDatabase.getReference("UserTable").child(currentUser).addValueEventListener(new ValueEventListener() {

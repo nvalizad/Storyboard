@@ -34,7 +34,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:gravity="center"
-                    android:text="@string/prompt_draft_title"
+                    android:text="Prompt"
                     android:textColor="@color/white"
                     android:textSize="22sp"
                     android:textStyle="bold"
@@ -59,15 +59,7 @@
         app:layout_anchorGravity="right|bottom"
         app:srcCompat="@android:drawable/arrow_up_float" />
 
-    <android.support.design.widget.FloatingActionButton
-        android:id="@+id/titleButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_margin="@dimen/fab_margin"
-        app:layout_anchor="@id/app_bar"
-        app:layout_anchorGravity="bottom"
-        app:srcCompat="@android:drawable/ic_menu_info_details"
-        app:fabSize="mini"/>
+
 
     <RelativeLayout
         android:layout_width="wrap_content"

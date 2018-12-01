@@ -109,7 +109,7 @@ public class FlashCardsFragment extends Fragment {
                     case PROMPT:
                         //TODO PROMPT ACTIVITY
                         Intent in = new Intent(getActivity(), PromptActivity.class);
-                        in.putExtra("Title", card.getTitle());
+
                         in.putExtra("Text", card.getText());
                         in.putExtra("uid", card.getUid());
 
