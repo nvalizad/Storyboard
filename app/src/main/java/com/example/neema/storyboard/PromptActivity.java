@@ -39,13 +39,14 @@ public class PromptActivity extends AppCompatActivity {
     private String CardID, Uid, privacyText, currentUsername;
 
     //For editing title
-    String titlePlaceholderText = "";
+    String titlePlaceholderText;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.prompt);
         Intent intent = getIntent();
+        titlePlaceholderText = getResources().getString(R.string.blank_string);
 
         draftText = findViewById(R.id.draftText);
         visibilityText = findViewById(R.id.visibilityText);
@@ -63,12 +64,12 @@ public class PromptActivity extends AppCompatActivity {
             isNewCard = false;
 
             if (isPublic){
-                visibilityText.setText("Public");
+                visibilityText.setText(R.string.public_string);
                 isPublic = true;
                 privacySwitch.setChecked(true);
             }
             else {
-                visibilityText.setText("Private");
+                visibilityText.setText(R.string.private_string);
                 isPublic = false;
                 privacySwitch.setChecked(false);
             }
@@ -85,10 +86,10 @@ public class PromptActivity extends AppCompatActivity {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean isChecked) {
                 if (isChecked) {
-                    visibilityText.setText("Public");
+                    visibilityText.setText(R.string.public_string);
                 }
                 else {
-                    visibilityText.setText("Private");
+                    visibilityText.setText(R.string.private_string);
                 }
                 isPublic = isChecked;
             }
@@ -99,13 +100,13 @@ public class PromptActivity extends AppCompatActivity {
             public void onClick(View view) {
                 AlertDialog.Builder inputDialog = new AlertDialog.Builder(PromptActivity.this);
                 if(isPublic){
-                    inputDialog.setTitle("Are you sure you want to upload this prompt to the community?");
+                    inputDialog.setTitle(R.string.public_submission_string);
 
                 } else {
-                    inputDialog.setTitle("Are you sure you want to post this prompt privately?");
+                    inputDialog.setTitle(R.string.private_submission_string);
                 }
 
-                inputDialog.setNegativeButton("Submit", new DialogInterface.OnClickListener() {
+                inputDialog.setNegativeButton(R.string.submit_string, new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
                         String cardId;
@@ -140,7 +141,7 @@ public class PromptActivity extends AppCompatActivity {
                             }
                         }
                         Toast.makeText(getApplicationContext(),
-                                "Uploaded successfully!",
+                                R.string.successful_upload_string,
                                 Toast.LENGTH_LONG).show();
                     }
                 });

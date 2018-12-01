@@ -47,10 +47,10 @@ public class FreeWriteActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        titlePlaceholderText = getResources().getString(R.string.blank_string);
         setContentView(R.layout.freewrite);
         Intent intent = getIntent();
         getCurrentUsername();
+        titlePlaceholderText = getResources().getString(R.string.blank_string);
         draftText = findViewById(R.id.draftText);
         visibilityText = findViewById(R.id.visibilityText);
         titleText = findViewById(R.id.toolbarTitle);
