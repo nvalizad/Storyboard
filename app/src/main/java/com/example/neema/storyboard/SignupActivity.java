@@ -103,18 +103,7 @@ public class SignupActivity extends AppCompatActivity {
 
                     String cardKey = mRefCardTable.child(userId).child("Cards").push().getKey();
                     mRefCardTable.child(userId).child("Cards").child(cardKey).setValue(new Card(CardType.FREEWRITE, userId, usernameString, cardKey,"Welcome","Welcome to Storyboard", false));
-
-                    // TODO: REMOVE ADDING CARDS TO COMMUNITYTABLE. TESTING DELETE LINES 107 - 115
-
-                    for (int i = 0; i < 10; i++) {
-                        String communityKey0 = mRefCommunityTable.push().getKey();
-                        mRefCommunityTable.child(communityKey0).setValue(new Card(CardType.FREEWRITE, "FAKEID", usernameString, communityKey0, "Community test" + i, "This is a test", true));
-                    }
-
-                    String communityKey = mRefCommunityTable.push().getKey();
-                    mRefCommunityTable.child(communityKey).setValue(new Card(CardType.FREEWRITE, userId, usernameString, communityKey, "Should not see this", "no", true));
-
-                    // TODO: Popup telling the user to check email. Remove toast when done.
+                    
                     Toast.makeText(getApplicationContext(), getString(R.string.registration_complete), Toast.LENGTH_LONG).show();
                 }
                 // Some error as occurred, e.g. email already used to create an account.
