@@ -35,10 +35,15 @@ public class CardAdapter extends RecyclerView.Adapter<CardAdapter.CardViewHolder
     }
     @Override
     public void onBindViewHolder(CardViewHolder holder, int position) {
-
         Card card = cards.get(position);
-        holder.title.setText(card.getTitle());
-        holder.text.setText(card.getText());
+        if (card.cardType == CardType.FREEWRITE) {
+            holder.title.setText(card.getTitle());
+            holder.text.setText(card.getText());
+        }
+        else if (card.cardType == CardType.PROMPT) {
+            holder.title.setText(card.getText());
+            holder.text.setText("");
+        }
         holder.privacy.setText(boolToString(card.isPublic()));
         holder.type.setText(typeToString(card.getCardType()));
     }
