@@ -43,6 +43,7 @@ public class CommunityActivity extends AppCompatActivity {
         mRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                communityCards.clear();
                 for (DataSnapshot postSnapshot : dataSnapshot.getChildren()) {
                     Card card = createCard(postSnapshot);
                         communityCards.add(card);

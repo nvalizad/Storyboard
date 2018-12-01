@@ -10,18 +10,25 @@ import android.app.Activity;
 
 import java.util.List;
 
-public class CommunityCardAdapter extends RecyclerView.Adapter<CommunityCardAdapter.CommunityViewHolder>{
+public class CommunityCardAdapter extends RecyclerView.Adapter<CommunityCardAdapter.CommunityViewHolder> {
     private List<Card> communityCard;
     private Card card;
 
-    public class CommunityViewHolder extends RecyclerView.ViewHolder  {
+    public class CommunityViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
         //TODO ADD fields
         private TextView text;
 
         public CommunityViewHolder(View view) {
             super(view);
             text = (TextView) view.findViewById(R.id.textView);
-            //TODO GET THE FIELD FROM BY FIND VIEW BY ID
+            view.setOnClickListener(this);
+        }
+        @Override
+        public void onClick(View v) {
+            Intent intent = new Intent(v.getContext(), CommentsActivity.class);
+            intent.putExtra("cardId", communityCard.get(getAdapterPosition()).getCardId());
+            intent.putExtra("cardUserId", communityCard.get(getAdapterPosition()).getUid());
+            v.getContext().startActivity(intent);
         }
     }
 
@@ -40,15 +47,6 @@ public class CommunityCardAdapter extends RecyclerView.Adapter<CommunityCardAdap
     public void onBindViewHolder(CommunityViewHolder holder, int position) {
         card = communityCard.get(position);
         holder.text.setText(card.getTitle());
-        holder.itemView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(v.getContext(), CommentsActivity.class);
-                intent.putExtra("cardId", card.getCardId());
-                intent.putExtra("cardUserId", card.getUid());
-                v.getContext().startActivity(intent);
-            }
-        });
     }
 
     @Override
