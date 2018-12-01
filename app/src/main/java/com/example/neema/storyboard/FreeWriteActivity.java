@@ -42,11 +42,12 @@ public class FreeWriteActivity extends AppCompatActivity {
 
     Toolbar toolbar;
     //For editing title
-    String titlePlaceholderText = "";
+    String titlePlaceholderText;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        titlePlaceholderText = getResources().getString(R.string.blank_string);
         setContentView(R.layout.freewrite);
         Intent intent = getIntent();
         getCurrentUsername();
@@ -65,20 +66,18 @@ public class FreeWriteActivity extends AppCompatActivity {
             isWeekly = intent.getBooleanExtra("weekly", false);
             isNewCard = false;
             if (isPublic){
-                visibilityText.setText("Public");
+                visibilityText.setText(R.string.public_string);
                 isPublic = true;
                 privacySwitch.setChecked(true);
             }
             else {
-                visibilityText.setText("Private");
+                visibilityText.setText(R.string.private_string);
                 isPublic = false;
                 privacySwitch.setChecked(false);
             }
 
         }
 
-
-//        FloatingActionButton saveButton = (FloatingActionButton) findViewById(R.id.saveButton);
         FloatingActionButton uploadButton = (FloatingActionButton) findViewById(R.id.uploadButton);
         FloatingActionButton titleButton = (FloatingActionButton) findViewById(R.id.titleButton);
 
@@ -90,10 +89,10 @@ public class FreeWriteActivity extends AppCompatActivity {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean isChecked) {
                 if (isChecked) {
-                    visibilityText.setText("Public");
+                    visibilityText.setText(R.string.public_string);
                 }
                 else {
-                    visibilityText.setText("Private");
+                    visibilityText.setText(R.string.private_string);
                 }
                 isPublic = isChecked;
             }
@@ -104,13 +103,13 @@ public class FreeWriteActivity extends AppCompatActivity {
             public void onClick(View view) {
                 final AlertDialog.Builder inputDialog = new AlertDialog.Builder(FreeWriteActivity.this);
                 if(isPublic){
-                    inputDialog.setTitle("Are you sure you want to upload this story to the community?");
+                    inputDialog.setTitle(R.string.public_submission_string);
 
                 } else {
-                    inputDialog.setTitle("Are you sure you want to post this story privately?");
+                    inputDialog.setTitle(R.string.private_submission_string);
                 }
 
-                inputDialog.setNegativeButton("Submit", new DialogInterface.OnClickListener() {
+                inputDialog.setNegativeButton(R.string.submit_string, new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
                         // add cards or edited old cards and places them in their respective database
@@ -162,7 +161,7 @@ public class FreeWriteActivity extends AppCompatActivity {
                         }
                         //TODO: UPLOAD PROMPT BASED ON PRIVACY
                         Toast.makeText(getApplicationContext(),
-                                "Uploaded successfully!",
+                                R.string.successful_upload_string,
                                 Toast.LENGTH_LONG).show();
                     }
                 });
@@ -193,14 +192,14 @@ public class FreeWriteActivity extends AppCompatActivity {
 
                 inputDialog.setView(input);
 
-                inputDialog.setNegativeButton("Submit", new DialogInterface.OnClickListener() {
+                inputDialog.setNegativeButton(R.string.submit_string, new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
                         titlePlaceholderText = input.getText().toString();
                         titleText.setText(titlePlaceholderText);
                     }
                 });
-                inputDialog.setPositiveButton("Cancel", new DialogInterface.OnClickListener() {
+                inputDialog.setPositiveButton(R.string.cancel_string, new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
                         dialogInterface.cancel();

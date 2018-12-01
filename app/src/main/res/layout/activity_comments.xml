@@ -29,7 +29,7 @@
                     android:layout_height="wrap_content"
                     android:id="@+id/postTitle"
                     android:layout_marginTop="30dp"
-                    android:text="comment"
+                    android:text="@string/comment_string"
                     android:gravity="left"/>
 
                 <TextView
@@ -38,7 +38,7 @@
                     android:layout_height="wrap_content"
                     android:id="@+id/postAuthor"
                     android:layout_marginTop="3dp"
-                    android:text="Author"
+                    android:text="@string/author_string"
                     android:gravity="left"
                     android:layout_below="@+id/postTitle"/>
 
@@ -49,7 +49,7 @@
                     android:layout_below="@id/postAuthor"
                     android:layout_marginTop="3dp"
                     android:gravity="left"
-                    android:text="Content" />
+                    android:text="@string/content_string" />
 
 
             </RelativeLayout>
@@ -82,7 +82,7 @@
             android:layout_marginBottom="4dp"
             android:ems="10"
             android:inputType="textPersonName"
-            android:text="Comment Here..."
+            android:text="@string/comment_here_String"
             android:focusableInTouchMode="false"
             android:onClick="replyPressed"/>
 
