@@ -37,6 +37,9 @@ public class CommentsActivity extends AppCompatActivity {
 
     private ArrayList<Comment> mComments = new ArrayList<Comment>();
     private String cardId, cardUserId;
+    String currentUsername;
+    String currentUser = FirebaseAuth.getInstance().getCurrentUser().getUid();
+    FirebaseDatabase mDatabase = FirebaseDatabase.getInstance();
     private FirebaseDatabase mFirebaseDatabase = FirebaseDatabase.getInstance();
     private DatabaseReference mRef;
     private DatabaseReference mCardTable;
@@ -46,6 +49,7 @@ public class CommentsActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_comments);
         Log.d(TAG, "onCreate: Started.");
+        getCurrentUsername();
         cardId = getIntent().getStringExtra("cardId");
         cardUserId = getIntent().getStringExtra("cardUserId");
         mRef = mFirebaseDatabase.getReference("CommentTable").child(cardId);
@@ -58,11 +62,6 @@ public class CommentsActivity extends AppCompatActivity {
 
     private void init(){
                 mListView = (ListView) findViewById(R.id.commentsListView);
-//                mComments = new ArrayList<Comment>();
-//                for(int i = 0; i < 20; i++) {
-//                    Comment c = new Comment("comment" + i, "comment" + i,  "comment" + i);
-//                    mComments.add(c);
-//                }
 
                 mRef.addValueEventListener(new ValueEventListener() {
                     @Override
@@ -80,19 +79,16 @@ public class CommentsActivity extends AppCompatActivity {
 
                     }
                 });
-                //TODO GET COMMENTS FROM DB
 
 
     }
 
     private void initCardContent(){
-        //TODO FILL IN POST FROM DB (THE CARD OF WHAT USERS ARE COMMENTING ON)
 
         final TextView title = (TextView) findViewById(R.id.postTitle);
         final TextView author = (TextView) findViewById(R.id.postAuthor);
         final TextView content = (TextView) findViewById(R.id.postContent);
-        //TODO SET A LISTENER FOR BUTTON IF WE DECIDE TO USE REPLY BUTTON
-        //Button btnReply = (Button) findViewById(R.id.btnPostReply);
+
         mCardTable.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
@@ -123,6 +119,8 @@ public class CommentsActivity extends AppCompatActivity {
                     public void onClick(DialogInterface dialog, int which) {
                         String task = String.valueOf(commentText.getText());
                         //TODO: add comment into database and maybe into view
+                    String commentId = mRef.push().getKey();
+                    mRef.child(commentId).setValue(new Comment(task, currentUsername, commentId));
                     }
                 })
                 .setNegativeButton("Cancel", null)
@@ -136,6 +134,19 @@ public class CommentsActivity extends AppCompatActivity {
         String id = (String) postSnapshot.child("id").getValue();
 
         return new Comment(comment, author, id);
+    }
+    public void getCurrentUsername() {
+        mDatabase.getReference("UserTable").child(currentUser).addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                currentUsername = (String) dataSnapshot.child("username").getValue();
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
     }
 }
 
