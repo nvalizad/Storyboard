@@ -27,9 +27,10 @@ public class Card {
 
     // Overloaded Constructor for Weekly cards only!
 
-    public Card(CardType cardType, String uid, String cardId, String title, String text, boolean isPublic, String weeklyText) {
+    public Card(CardType cardType, String uid, String username, String cardId, String title, String text, boolean isPublic, String weeklyText) {
         this.cardType = cardType;
         this.uid = uid;
+        this.username = username;
         this.cardId = cardId;
         this.title = title;
         this.text = text;

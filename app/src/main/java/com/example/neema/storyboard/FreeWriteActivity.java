@@ -37,7 +37,7 @@ public class FreeWriteActivity extends AppCompatActivity {
     TextView titleText;
     Switch privacySwitch;
     private String CardID, Uid, privacyText, currentUsername;
-    boolean isPublic;
+    boolean isPublic, isWeekly;
     boolean isNewCard;
 
     Toolbar toolbar;
@@ -62,6 +62,7 @@ public class FreeWriteActivity extends AppCompatActivity {
             CardID = intent.getStringExtra("CardId");
             Uid = intent.getStringExtra("uid");
             isPublic = (intent.getBooleanExtra("Pub", false));
+            isWeekly = intent.getBooleanExtra("weekly", false);
             isNewCard = false;
             if (isPublic){
                 visibilityText.setText("Public");
@@ -117,27 +118,42 @@ public class FreeWriteActivity extends AppCompatActivity {
                         if (!isPublic) {
                             if (isNewCard) {
                                 cardId = mRef.child(currentUser).child("Cards").push().getKey();
-                                Card card = new Card(CardType.FREEWRITE, currentUser, currentUsername, cardId, titleText.getText().toString(), draftText.getText().toString(), false);
+                                Card card;
+                                if (!isWeekly)
+                                    card = new Card(CardType.FREEWRITE, currentUser, currentUsername, cardId, titleText.getText().toString(), draftText.getText().toString(), false);
+                                else
+                                    card = new Card(CardType.WEEKLY, currentUser, currentUsername, cardId, titleText.getText().toString(), draftText.getText().toString(), false);
                                 mRef.child(currentUser).child("Cards").child(cardId).setValue(card);
                             }
                             else {
                                 cardId = CardID;
-                                Card card = new Card(CardType.FREEWRITE, currentUser, currentUsername, cardId, titleText.getText().toString(), draftText.getText().toString(), false);
+                                Card card;
+                                if (!isWeekly)
+                                    card = new Card(CardType.FREEWRITE, currentUser, currentUsername, cardId, titleText.getText().toString(), draftText.getText().toString(), false);
+                                else
+                                    card = new Card(CardType.WEEKLY, currentUser, currentUsername, cardId, titleText.getText().toString(), draftText.getText().toString(), false);
                                 mRef.child(currentUser).child("Cards").child(cardId).setValue(card);
                             }
                         }
                         else {
                             if (isNewCard) {
                                 cardId = mRef.child(currentUser).child("Cards").push().getKey();
-                                Card card = new Card(CardType.FREEWRITE, currentUser, currentUsername, cardId, titleText.getText().toString(), draftText.getText().toString(), true);
-                                mRef.child(currentUser).child("Cards").child(cardId).setValue(card);
+                                Card card;
+                                if (!isWeekly)
+                                    card = new Card(CardType.FREEWRITE, currentUser, currentUsername, cardId, titleText.getText().toString(), draftText.getText().toString(), true);
+                                else
+                                    card = new Card(CardType.WEEKLY, currentUser, currentUsername, cardId, titleText.getText().toString(), draftText.getText().toString(), true);
 
                                 //Adds to community table
                                 mCommunityTable.child(cardId).setValue(card);
                             }
                             else {
                                 cardId = CardID;
-                                Card card = new Card(CardType.FREEWRITE, currentUser, currentUsername, cardId, titleText.getText().toString(), draftText.getText().toString(), true);
+                                Card card;
+                                if (!isWeekly)
+                                    card = new Card(CardType.FREEWRITE, currentUser, currentUsername, cardId, titleText.getText().toString(), draftText.getText().toString(), true);
+                                else
+                                    card = new Card(CardType.WEEKLY, currentUser, currentUsername, cardId, titleText.getText().toString(), draftText.getText().toString(), true);
                                 mRef.child(currentUser).child("Cards").child(cardId).setValue(card);
 
                                 //Adds to community table

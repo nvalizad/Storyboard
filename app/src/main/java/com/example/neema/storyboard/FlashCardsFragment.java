@@ -70,9 +70,6 @@ public class FlashCardsFragment extends Fragment {
 
             }
         });
-
-
-
     }
     private void setupRecyclerView(View v) {
         RecyclerView recyclerView = v.findViewById(R.id.recyclerView);
@@ -91,12 +88,10 @@ public class FlashCardsFragment extends Fragment {
             }
             @Override
             public void onLeftClicked(int position) {
-                //TODO BRIAN's PAGE
                 Card card = mAdapter.cards.get(position);
                 CardType type = card.cardType;
                 switch(type) {
                     case FREEWRITE:
-                        //TODO FREWRITE ACTIVITY
                         Intent intent = new Intent(getActivity(), FreeWriteActivity.class);
                         intent.putExtra("Title", card.getTitle());
                         intent.putExtra("Text", card.getText());
@@ -104,10 +99,10 @@ public class FlashCardsFragment extends Fragment {
 
                         intent.putExtra("Pub", card.isPublic());
                         intent.putExtra("CardId", card.getCardId());
+                        intent.putExtra("weekly", false);
                         startActivity(intent);
                         break;
                     case PROMPT:
-                        //TODO PROMPT ACTIVITY
                         Intent in = new Intent(getActivity(), PromptActivity.class);
 
                         in.putExtra("Text", card.getText());
@@ -118,7 +113,15 @@ public class FlashCardsFragment extends Fragment {
                         startActivity(in);
                         break;
                     case WEEKLY:
-                        //TODO IDK IF ANYTHING IS NEEDED
+                        Intent i = new Intent(getActivity(), FreeWriteActivity.class);
+
+                        i.putExtra("Text", card.getText());
+                        i.putExtra("uid", card.getUid());
+                        i.putExtra("Title", card.getTitle());
+                        i.putExtra("Pub", card.isPublic());
+                        i.putExtra("CardId", card.getCardId());
+                        i.putExtra("weekly", true);
+                        startActivity(i);
                         break;
 
                 }
@@ -153,7 +156,7 @@ public class FlashCardsFragment extends Fragment {
                 card = new Card(CardType.FREEWRITE, uid, userName, cardId, title, text, isPublic);
                 break;
             case WEEKLY:
-                card = new Card(CardType.WEEKLY, uid, cardId, title, text, isPublic, weekly);
+                card = new Card(CardType.WEEKLY, uid, userName, cardId, title, text, isPublic, weekly);
                 break;
             case PROMPT:
                 card = new Card(CardType.PROMPT, uid, userName, cardId, "", text, isPublic);
@@ -174,9 +177,5 @@ public class FlashCardsFragment extends Fragment {
                 return CardType.WEEKLY;
         }
         return CardType.FREEWRITE;
-    }
-
-    public void addCardToList(Card card) {
-        cards.add(card);
     }
 }

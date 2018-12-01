@@ -86,7 +86,7 @@ public class CommunityActivity extends AppCompatActivity {
                 card = new Card(CardType.FREEWRITE, userId, userName, cardId, title, text, isPublic);
                 break;
             case WEEKLY:
-                card = new Card(CardType.WEEKLY, userId, cardId, title, text, isPublic, weekly);
+                card = new Card(CardType.WEEKLY, userId, userName, cardId, title, text, isPublic, weekly);
                 break;
             case PROMPT:
                 card = new Card(CardType.PROMPT, userId, userName, cardId, "", text, isPublic);
