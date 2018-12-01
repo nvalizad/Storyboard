@@ -16,37 +16,40 @@
             android:layout_height="wrap_content">
 
 
+
             <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="10dp">
+                android:layout_height="200dp"
+                android:layout_marginLeft="10dp"
+                >
 
                 <TextView
                     android:textStyle="bold"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:id="@+id/postTitle"
-                    android:layout_marginTop="3dp"
+                    android:layout_marginTop="30dp"
                     android:text="comment"
-                    android:gravity="center"/>
+                    android:gravity="left"/>
 
                 <TextView
                     android:textSize="10sp"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:id="@+id/postAuthor"
                     android:layout_marginTop="3dp"
                     android:text="Author"
-                    android:gravity="center"
+                    android:gravity="left"
                     android:layout_below="@+id/postTitle"/>
 
                 <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
                     android:id="@+id/postContent"
-                    android:gravity="center"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
                     android:layout_below="@id/postAuthor"
-                    android:text="Content"/>
+                    android:layout_marginTop="3dp"
+                    android:gravity="left"
+                    android:text="Content" />
 
 
             </RelativeLayout>
@@ -57,25 +60,25 @@
         <ListView
             android:id="@+id/commentsListView"
             android:layout_width="match_parent"
-            android:layout_height="452dp"
+            android:layout_height="400dp"
             android:layout_below="@+id/commentHeadingRelLayout"
             android:layout_alignParentStart="true"
             android:layout_marginStart="0dp"
-            android:layout_marginTop="129dp">
+            android:layout_marginTop="15dp">
 
         </ListView>
 
         <EditText
             android:id="@+id/editText2"
-            android:layout_width="385dp"
+            android:layout_width="match_parent"
             android:layout_height="45dp"
             android:layout_below="@+id/commentsListView"
             android:layout_alignParentStart="true"
             android:layout_alignParentEnd="true"
             android:layout_alignParentBottom="true"
             android:layout_marginStart="13dp"
-            android:layout_marginTop="9dp"
-            android:layout_marginEnd="13dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="10dp"
             android:layout_marginBottom="4dp"
             android:ems="10"
             android:inputType="textPersonName"
