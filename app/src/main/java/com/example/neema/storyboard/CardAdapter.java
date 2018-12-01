@@ -10,11 +10,14 @@ import java.util.List;
 public class CardAdapter extends RecyclerView.Adapter<CardAdapter.CardViewHolder> {
     public List<Card> cards;
     public class CardViewHolder extends RecyclerView.ViewHolder {
-        private TextView title,text;
+        private TextView title, text, privacy, type;
 
         public CardViewHolder(View view) {
             super(view);
-            text = (TextView) view.findViewById(R.id.textView);
+            title = (TextView) view.findViewById(R.id.title);
+            text = (TextView) view.findViewById(R.id.description);
+            privacy = (TextView) view.findViewById(R.id.privacy);
+            type = (TextView) view.findViewById(R.id.type);
 
         }
     }
@@ -23,7 +26,7 @@ public class CardAdapter extends RecyclerView.Adapter<CardAdapter.CardViewHolder
     }
     @Override
     public CardViewHolder onCreateViewHolder(ViewGroup parent,int viewType) {
-        View itemView = LayoutInflater.from(parent.getContext()).inflate(R.layout.cards,parent,false);
+        View itemView = LayoutInflater.from(parent.getContext()).inflate(R.layout.freewrite_card,parent,false);
         return new CardViewHolder(itemView);
     }
     @Override
@@ -32,11 +35,29 @@ public class CardAdapter extends RecyclerView.Adapter<CardAdapter.CardViewHolder
     }
     @Override
     public void onBindViewHolder(CardViewHolder holder, int position) {
+
         Card card = cards.get(position);
-        holder.text.setText(card.getTitle());
-        
+        holder.title.setText(card.getTitle());
+        holder.text.setText(card.getText());
+        holder.privacy.setText(boolToString(card.isPublic()));
+        holder.type.setText(typeToString(card.getCardType()));
+    }
 
-        //TODO SET DATA OF THE CURRENT HOLDER
+    public String boolToString(boolean isPublic) {
+        if (isPublic)
+            return "Public";
+        return "Private";
+    }
 
+    public String typeToString (CardType cardType) {
+        switch (cardType) {
+            case FREEWRITE:
+                return "Freewrite";
+            case PROMPT:
+                return "Prompt";
+            case WEEKLY:
+                return "Weekly";
+        }
+        return "Error";
     }
 }
