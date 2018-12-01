@@ -41,8 +41,6 @@ public class CardAdapter extends RecyclerView.Adapter<CardAdapter.CardViewHolder
         holder.text.setText(card.getText());
         holder.privacy.setText(boolToString(card.isPublic()));
         holder.type.setText(typeToString(card.getCardType()));
-        //TODO SET DATA OF THE CURRENT HOLDER
-
     }
 
     public String boolToString(boolean isPublic) {
