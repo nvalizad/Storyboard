@@ -46,7 +46,7 @@ public class WeeklyChallenge extends AppCompatActivity {
         String weeklyText = ((TextView) findViewById(R.id.challengeText)).getText().toString();
         String uid = mFirebaseAuth.getCurrentUser().getUid();
         String cardId = cardRef.child(uid).child("Cards").push().getKey();
-        Card card = new Card(CardType.WEEKLY, uid, currentUsername, cardId, "Weekly Challenge 1", userText, false, weeklyText);
+        Card card = new Card(CardType.WEEKLY, uid, currentUsername, cardId, getString(R.string.challengeOne_string), userText, false, weeklyText);
 
         cardRef.child(uid).child("Cards").child(cardId).setValue(card);
     }

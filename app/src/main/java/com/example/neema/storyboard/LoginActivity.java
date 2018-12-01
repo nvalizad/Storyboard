@@ -36,13 +36,13 @@ public class LoginActivity extends AppCompatActivity {
     protected void loginPressed(View v) {
         String emailString = emailInput.getText().toString();
         if (TextUtils.isEmpty(emailInput.getText())) {
-            emailInput.setError("Required");
+            emailInput.setError(getString(R.string.error_field_required));
         }
         else if (TextUtils.isEmpty(passwordInput.getText())) {
-            passwordInput.setError("Required");
+            passwordInput.setError(getString(R.string.error_field_required));
         }
         else if (!Patterns.EMAIL_ADDRESS.matcher(emailString).matches()){
-            emailInput.setError("Not a valid email");
+            emailInput.setError(getString(R.string.email_not_valid));
         }
         else {
             loginRequest(emailInput.getText().toString(), passwordInput.getText().toString());

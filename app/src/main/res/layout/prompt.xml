@@ -34,7 +34,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:gravity="center"
-                    android:text="Prompt"
+                    android:text="@string/prompt_string"
                     android:textColor="@color/white"
                     android:textSize="22sp"
                     android:textStyle="bold"
