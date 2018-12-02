@@ -16,11 +16,15 @@ public class CommunityCardAdapter extends RecyclerView.Adapter<CommunityCardAdap
 
     public class CommunityViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
         //TODO ADD fields
-        private TextView text;
+        private TextView title, cardUsername, description, type;
 
         public CommunityViewHolder(View view) {
             super(view);
-            text = (TextView) view.findViewById(R.id.textView);
+            title = (TextView) view.findViewById(R.id.title);
+            cardUsername = view.findViewById(R.id.cardUsername);
+            description = view.findViewById(R.id.description);
+            type = view.findViewById(R.id.type);
+
             view.setOnClickListener(this);
         }
         @Override
@@ -46,7 +50,32 @@ public class CommunityCardAdapter extends RecyclerView.Adapter<CommunityCardAdap
     @Override
     public void onBindViewHolder(CommunityViewHolder holder, int position) {
         card = communityCard.get(position);
-        holder.text.setText(card.getTitle());
+        if (card.getCardType() == CardType.FREEWRITE) {
+            holder.title.setText(card.getTitle());
+            holder.description.setText(card.getText());
+        }
+        else if (card.getCardType() == CardType.PROMPT) {
+            holder.title.setText(card.getText());
+            holder.description.setText("");
+        }
+        else if (card.getCardType() == CardType.WEEKLY) {
+            holder.title.setText("Weekly Challenge 1");
+            holder.description.setText(card.getText());
+        }
+        holder.cardUsername.setText(card.getUsername());
+        holder.type.setText(cardTypeToString(card.getCardType()));
+    }
+
+    private String cardTypeToString(CardType cardType) {
+        switch (cardType) {
+            case FREEWRITE:
+                return "Freewrite";
+            case PROMPT:
+                return "Prompt";
+            case WEEKLY:
+                return "Weekly";
+        }
+        return "Error";
     }
 
     @Override
