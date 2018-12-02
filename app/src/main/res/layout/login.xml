@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:layout_editor_absoluteY="50dp"
-    android:background="@drawable/gradient_background"
+    android:background="@drawable/loginn_background"
     >
 
     <TextView
@@ -20,7 +20,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        android:textColor="#cfffffff"
+        android:textColor="#fcffffff"
         />
 
 
@@ -38,7 +38,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/emailHeading"
-        android:textColorHint="#a8ffffff"
+        android:textColorHint="#eeffffff"
         android:background="#34ffffff"
         android:textColor="#a8ffffff"
 
@@ -74,7 +74,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/passwordHeading"
-        android:textColorHint="#a8ffffff"
+        android:textColorHint="#daffffff"
         android:background="#34ffffff"
         android:textColor="#a8ffffff"
         />

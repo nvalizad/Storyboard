@@ -18,7 +18,7 @@
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="8dp"
         android:orientation="vertical"
-        android:background="@drawable/main_menu_background"
+        android:background="@drawable/paper_fibers"
         >
 
         <fragment
@@ -61,6 +61,7 @@
         android:layout_height="match_parent"
         android:layout_gravity="start"
         android:fitsSystemWindows="true"
-        app:menu="@menu/activity_side_menu_drawer" />
+        app:menu="@menu/activity_side_menu_drawer"
+        />
 
 </android.support.v4.widget.DrawerLayout>

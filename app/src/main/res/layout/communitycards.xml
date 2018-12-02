@@ -6,7 +6,8 @@
     android:focusable="true"
     android:clickable="true"
     android:layout_margin="8dp"
-    android:background="?android:attr/selectableItemBackground">
+    android:background="?android:attr/selectableItemBackground"
+    >
 
     <LinearLayout
         android:orientation="vertical"
@@ -24,7 +25,10 @@
                 android:id="@+id/textView"
                 android:layout_width="match_parent"
                 android:layout_height="104dp"
-                android:text="CARD" />
+                android:text="CARD"
+                android:textColor="#022784"
+
+                />
         </LinearLayout>
 
     </LinearLayout>
