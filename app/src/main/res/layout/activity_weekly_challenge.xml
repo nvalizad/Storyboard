@@ -34,7 +34,8 @@
             android:layout_height="wrap_content"
             android:inputType="textCapSentences|textMultiLine"
             android:hint="@string/give_try_string"
-            android:id="@+id/editText"/>
+            android:id="@+id/editText"
+            android:backgroundTint="#3268de" />
         <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
