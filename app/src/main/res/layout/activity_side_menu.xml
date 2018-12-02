@@ -8,8 +8,7 @@
     android:fitsSystemWindows="true"
     tools:openDrawer="start">
 
-    <RelativeLayout
-        xmlns:android="http://schemas.android.com/apk/res/android"
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:id="@+id/relativeLayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -17,32 +16,33 @@
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="8dp"
+        android:background="#f7f8ff"
         android:orientation="vertical">
 
         <fragment
             android:id="@+id/profile"
             class="com.example.neema.storyboard.ProfileFragment"
-            android:layout_width="399dp"
+            android:layout_width="match_parent"
             android:layout_height="130dp"
             android:layout_alignParentStart="true"
             android:layout_alignParentTop="true"
-            android:layout_marginStart="5dp"
-            android:layout_marginTop="61dp"
+            android:layout_marginStart="0dp"
+            android:layout_marginTop="53dp"
             android:layout_weight="1" />
 
         <fragment
             android:id="@+id/flashCardList"
             class="com.example.neema.storyboard.FlashCardsFragment"
-            android:layout_width="356dp"
-            android:layout_height="230dp"
+            android:layout_width="373dp"
+            android:layout_height="319dp"
             android:layout_below="@+id/profile"
             android:layout_alignParentStart="true"
             android:layout_alignParentEnd="true"
             android:layout_alignParentBottom="true"
-            android:layout_marginStart="6dp"
-            android:layout_marginTop="14dp"
-            android:layout_marginEnd="6dp"
-            android:layout_marginBottom="0dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="1dp"
+            android:layout_marginEnd="3dp"
+            android:layout_marginBottom="4dp"
             android:layout_weight="2" />
 
     </RelativeLayout>
