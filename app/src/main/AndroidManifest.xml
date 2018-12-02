@@ -45,6 +45,10 @@
             android:label="@string/title_activity_side_menu"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
         <activity android:name=".CommentsActivity" />
+
+        <meta-data
+            android:name="preloaded_fonts"
+            android:resource="@array/preloaded_fonts" />
     </application>
 
 </manifest>
