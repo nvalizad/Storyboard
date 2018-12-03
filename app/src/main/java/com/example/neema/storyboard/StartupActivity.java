@@ -31,11 +31,11 @@ public class StartupActivity extends AppCompatActivity {
 
     }
 
-    protected void loginPressed(View v) {
+    public void loginPressed(View v) {
         startActivity(new Intent(StartupActivity.this, LoginActivity.class));
 
     }
-    protected void signupButtonPressed(View v) {
+    public void signupButtonPressed(View v) {
         startActivity(new Intent(StartupActivity.this, SignupActivity.class));
 
     }

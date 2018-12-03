@@ -107,7 +107,7 @@ public class CommentsActivity extends AppCompatActivity {
         });
 
     }
-    protected void replyPressed(View v){
+    public void replyPressed(View v){
 
         final EditText commentText = new EditText(this);
         commentText.setMaxLines(5);

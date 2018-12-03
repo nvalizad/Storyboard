@@ -48,7 +48,7 @@ public class SignupActivity extends AppCompatActivity {
     boolean isInfoEntered(String unIn, String fnIn, String eIn, String pwIn, String pwcIn) {
        return (unIn.length() > 0) && (fnIn.length() > 0) && (eIn.length() > 0) && (pwIn.length() > 0) && (pwIn.length() > 0);
     }
-    protected void signupPressed(View v) {
+    public void signupPressed(View v) {
         usernameString = username.getText().toString();
         fullNameString = fullName.getText().toString();
         emailString = email.getText().toString();
