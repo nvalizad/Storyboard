@@ -17,6 +17,7 @@ public class CommunityCardAdapter extends RecyclerView.Adapter<CommunityCardAdap
     public class CommunityViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
         //TODO ADD fields
         private TextView title, cardUsername, description, type;
+        
 
         public CommunityViewHolder(View view) {
             super(view);

@@ -6,7 +6,9 @@
     android:paddingLeft="16dp"
     android:paddingRight="16dp"
     android:orientation="horizontal"
-    android:gravity="start">
+    android:gravity="start"
+    android:background="@drawable/paper_fibers"
+    >
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -18,7 +20,8 @@
             android:layout_height="wrap_content"
             android:textAlignment="center"
             android:text="@string/weekly_challenge_header"
-            android:textSize="24sp"/>
+            android:textSize="24sp"
+            android:textColor="#475868"/>
 
         <TextView
             android:id="@+id/challengeText"
@@ -31,12 +34,15 @@
             android:layout_height="wrap_content"
             android:inputType="textCapSentences|textMultiLine"
             android:hint="@string/give_try_string"
-            android:id="@+id/editText"/>
+            android:id="@+id/editText"
+            android:backgroundTint="#3268de" />
         <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/save_challenge_string"
-            android:onClick="saveChallengeToCard"/>
+            android:onClick="saveChallengeToCard"
+            android:background="#f4eff2f7"
+            />
     </LinearLayout>
 
 </LinearLayout>

@@ -6,14 +6,15 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/profile"
     android:layout_width="match_parent"
-    android:layout_height="160dp"
-    android:background="@color/colorPrimary"
-    tools:layout_editor_absoluteY="50dp">
+    android:layout_height="130dp"
+    android:background="#022784"
+    tools:layout_editor_absoluteY="50dp"
+    >
 
     <TextView
         android:id="@+id/bio"
-        android:layout_width="0dp"
-        android:layout_height="65dp"
+        android:layout_width="366dp"
+        android:layout_height="59dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
@@ -23,13 +24,13 @@
         android:gravity="center_horizontal"
         android:text="@string/bio_Section_string"
         android:textAlignment="center"
-        android:textColor="@color/white"
+        android:textColor="#ffffff"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/usernameText" />
-    
+
     <Button
         android:id="@+id/composeSubmit"
         android:layout_width="50dp"
@@ -44,15 +45,21 @@
         android:id="@+id/usernameText"
         android:layout_width="101dp"
         android:layout_height="39dp"
-        android:layout_marginTop="44dp"
+        android:layout_marginTop="16dp"
         android:gravity="center"
         android:text="@string/username_string"
-        android:textColor="@color/white"
+        android:textColor="#ffffff"
         android:textSize="20dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.501"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        />
+    
+
+
+
+
 
 
 </android.support.constraint.ConstraintLayout>
