@@ -30,7 +30,7 @@ public class ForgotPasswordActivity extends AppCompatActivity {
         emailInput = findViewById(R.id.emailInput);
     }
 
-    protected void resetPressed(View v) {
+    public void resetPressed(View v) {
         // Display an error next to the email if it is empty
         if (TextUtils.isEmpty(emailInput.getText())) {
             emailInput.setError(getString(R.string.email_required));

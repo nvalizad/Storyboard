@@ -86,7 +86,7 @@ public class ProfileFragment extends Fragment{
     }
 
 
-    protected void newPostButtonPressed() {
+    public void newPostButtonPressed() {
         popupMenu.show();
     }
 

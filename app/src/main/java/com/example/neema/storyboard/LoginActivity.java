@@ -33,7 +33,7 @@ public class LoginActivity extends AppCompatActivity {
         emailInput = findViewById(R.id.emailLoginInput);
         passwordInput = findViewById(R.id.passwordLoginInput);
     }
-    protected void loginPressed(View v) {
+    public void loginPressed(View v) {
         String emailString = emailInput.getText().toString();
         if (TextUtils.isEmpty(emailInput.getText())) {
             emailInput.setError(getString(R.string.error_field_required));
@@ -48,7 +48,7 @@ public class LoginActivity extends AppCompatActivity {
             loginRequest(emailInput.getText().toString(), passwordInput.getText().toString());
         }
     }
-    protected void forgotPasswordPressed(View v) {
+    public void forgotPasswordPressed(View v) {
         startActivity(new Intent(LoginActivity.this, ForgotPasswordActivity.class));
     }
 

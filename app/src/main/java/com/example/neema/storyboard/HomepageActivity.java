@@ -19,7 +19,4 @@ public class HomepageActivity extends AppCompatActivity {
         //this.getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);
     }
 
-    protected void newPostButtonPressed() {
-
-    }
 }
