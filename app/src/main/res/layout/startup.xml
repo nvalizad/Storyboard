@@ -44,7 +44,6 @@
         android:layout_height="0dp"
         android:layout_marginBottom="47dp"
         android:background="@drawable/login_background"
-        android:onClick="loginPressed"
         android:text="@string/login_string"
         android:textColor="#efffffff"
         app:layout_constraintBottom_toTopOf="@+id/signupSubmit"

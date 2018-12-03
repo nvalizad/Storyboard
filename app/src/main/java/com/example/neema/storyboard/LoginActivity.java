@@ -32,21 +32,25 @@ public class LoginActivity extends AppCompatActivity {
         forgotPasswordButton = findViewById(R.id.forgotPasswordSubmit);
         emailInput = findViewById(R.id.emailLoginInput);
         passwordInput = findViewById(R.id.passwordLoginInput);
-    }
-    protected void loginPressed(View v) {
-        String emailString = emailInput.getText().toString();
-        if (TextUtils.isEmpty(emailInput.getText())) {
-            emailInput.setError(getString(R.string.error_field_required));
-        }
-        else if (TextUtils.isEmpty(passwordInput.getText())) {
-            passwordInput.setError(getString(R.string.error_field_required));
-        }
-        else if (!Patterns.EMAIL_ADDRESS.matcher(emailString).matches()){
-            emailInput.setError(getString(R.string.email_not_valid));
-        }
-        else {
-            loginRequest(emailInput.getText().toString(), passwordInput.getText().toString());
-        }
+        loginButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String emailString = emailInput.getText().toString();
+                if (TextUtils.isEmpty(emailInput.getText())) {
+                    emailInput.setError(getString(R.string.error_field_required));
+                }
+                else if (TextUtils.isEmpty(passwordInput.getText())) {
+                    passwordInput.setError(getString(R.string.error_field_required));
+                }
+                else if (!Patterns.EMAIL_ADDRESS.matcher(emailString).matches()){
+                    emailInput.setError(getString(R.string.email_not_valid));
+                }
+                else {
+                    loginRequest(emailInput.getText().toString(), passwordInput.getText().toString());
+                }
+
+            }
+        });
     }
     protected void forgotPasswordPressed(View v) {
         startActivity(new Intent(LoginActivity.this, ForgotPasswordActivity.class));

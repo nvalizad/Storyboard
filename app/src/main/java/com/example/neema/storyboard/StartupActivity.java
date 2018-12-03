@@ -26,15 +26,19 @@ public class StartupActivity extends AppCompatActivity {
             setContentView(R.layout.startup);
 
             loginButton = findViewById(R.id.loginSubmit);
+            loginButton.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    startActivity(new Intent(StartupActivity.this, LoginActivity.class));
+
+                }
+            });
             signupButton = findViewById(R.id.signupSubmit);
         }
 
     }
 
-    protected void loginPressed(View v) {
-        startActivity(new Intent(StartupActivity.this, LoginActivity.class));
 
-    }
     protected void signupButtonPressed(View v) {
         startActivity(new Intent(StartupActivity.this, SignupActivity.class));
 
