@@ -13,7 +13,6 @@
         android:layout_height="0dp"
         android:layout_marginBottom="159dp"
         android:background="@drawable/login_background"
-        android:onClick="signupButtonPressed"
         android:text="@string/signup_string"
         android:textColor="#EFFFFFFF"
         app:layout_constraintBottom_toBottomOf="parent"

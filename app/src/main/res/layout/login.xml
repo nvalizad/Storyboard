@@ -85,7 +85,6 @@
         android:layout_height="48dp"
         android:layout_marginBottom="33dp"
         android:background="@drawable/login_background"
-        android:onClick="loginPressed"
         android:text="@string/login_string"
         android:textColor="#c3ffffff"
         app:layout_constraintBottom_toTopOf="@+id/forgotPasswordSubmit"

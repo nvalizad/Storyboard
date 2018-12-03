@@ -51,9 +51,12 @@ public class LoginActivity extends AppCompatActivity {
 
             }
         });
-    }
-    protected void forgotPasswordPressed(View v) {
-        startActivity(new Intent(LoginActivity.this, ForgotPasswordActivity.class));
+        forgotPasswordButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(LoginActivity.this, ForgotPasswordActivity.class));
+            }
+        });
     }
 
     private void loginRequest(String email, String password){
