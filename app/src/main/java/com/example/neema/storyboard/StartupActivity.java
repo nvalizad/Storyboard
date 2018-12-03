@@ -34,13 +34,14 @@ public class StartupActivity extends AppCompatActivity {
                 }
             });
             signupButton = findViewById(R.id.signupSubmit);
+            signupButton.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    startActivity(new Intent(StartupActivity.this, SignupActivity.class));
+                }
+            });
         }
 
     }
-
-
-    protected void signupButtonPressed(View v) {
-        startActivity(new Intent(StartupActivity.this, SignupActivity.class));
-
-    }
+    
 }

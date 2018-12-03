@@ -99,7 +99,6 @@
         android:layout_height="51dp"
         android:layout_marginBottom="95dp"
         android:background="@drawable/login_background"
-        android:onClick="forgotPasswordPressed"
         android:text="@string/forgot_password_string"
         android:textColor="#c3ffffff"
         app:layout_constraintBottom_toBottomOf="parent"
