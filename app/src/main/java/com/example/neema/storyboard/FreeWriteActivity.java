@@ -142,7 +142,7 @@ public class FreeWriteActivity extends AppCompatActivity {
                                     card = new Card(CardType.FREEWRITE, currentUser, currentUsername, cardId, titleText.getText().toString(), draftText.getText().toString(), true);
                                 else
                                     card = new Card(CardType.WEEKLY, currentUser, currentUsername, cardId, titleText.getText().toString(), draftText.getText().toString(), true);
-
+                                mRef.child(currentUser).child("Cards").child(cardId).setValue(card);
                                 //Adds to community table
                                 mCommunityTable.child(cardId).setValue(card);
                             }
@@ -159,7 +159,6 @@ public class FreeWriteActivity extends AppCompatActivity {
                                 mCommunityTable.child(cardId).setValue(card);
                             }
                         }
-                        //TODO: UPLOAD PROMPT BASED ON PRIVACY
                         Toast.makeText(getApplicationContext(),
                                 R.string.successful_upload_string,
                                 Toast.LENGTH_LONG).show();
