@@ -19,12 +19,16 @@ android:background="?android:attr/selectableItemBackground">
         <TextView
             android:id="@+id/title"
             android:layout_width="175dp"
-            android:layout_height="34dp"
+            android:layout_height="wrap_content"
             android:layout_alignParentStart="true"
             android:layout_alignParentTop="true"
             android:layout_marginStart="0dp"
             android:layout_marginTop="2dp"
-            android:text="TextView" />
+            android:text="TextView"
+            android:textColor="#022784"
+            android:textSize="18sp"
+
+            />
 
         <TextView
             android:id="@+id/cardUsername"
@@ -34,7 +38,9 @@ android:background="?android:attr/selectableItemBackground">
             android:layout_alignParentEnd="true"
             android:layout_marginTop="7dp"
             android:layout_marginEnd="8dp"
-            android:text="TextView" />
+            android:text="TextView"
+            android:textColor="#4c515c"
+            />
 
         <TextView
             android:id="@+id/description"
@@ -48,7 +54,11 @@ android:background="?android:attr/selectableItemBackground">
             android:layout_marginTop="17dp"
             android:layout_marginEnd="153dp"
             android:layout_marginBottom="0dp"
-            android:text="TextView" />
+            android:text="TextView"
+            android:textColor="#4c515c"
+            android:textSize="16sp"
+
+            />
 
         <TextView
             android:id="@+id/type"
@@ -57,7 +67,9 @@ android:background="?android:attr/selectableItemBackground">
             android:layout_alignTop="@+id/cardUsername"
             android:layout_marginStart="-153dp"
             android:layout_toEndOf="@+id/description"
-            android:text="TextView" />
+            android:text="TextView"
+            android:textColor="#4c515c"
+            />
 
     </RelativeLayout>
 

@@ -5,7 +5,9 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
-    tools:context=".PromptActivity">
+    tools:context=".PromptActivity"
+    android:background="@drawable/paper_fibers"
+    >
 
     <android.support.design.widget.AppBarLayout
         android:id="@+id/app_bar"
@@ -57,7 +59,9 @@
         app:fabSize="mini"
         app:layout_anchor="@+id/app_bar"
         app:layout_anchorGravity="right|bottom"
-        app:srcCompat="@android:drawable/arrow_up_float" />
+        app:srcCompat="@android:drawable/arrow_up_float"
+        app:backgroundTint="#f534b6ed"
+        />
 
 
 

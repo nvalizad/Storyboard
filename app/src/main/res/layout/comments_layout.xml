@@ -30,7 +30,9 @@
                  android:gravity="center_vertical"
                  android:text="@string/comment_string"
                  android:layout_marginTop="3dp"
-                 android:textStyle="bold"/>
+                 android:textStyle="bold"
+                 android:textColor="#3d4358"
+                 android:textSize="13sp"/>
 
              <TextView
                  android:layout_width="wrap_content"
@@ -40,17 +42,21 @@
                  android:text="@string/author_string"
                  android:layout_marginTop="3dp"
                  android:layout_below="@+id/comment"
-                 android:textSize="10sp"/>
+                 android:textSize="10sp"
+                 android:textColor="#324489"
+                 />
 
              <TextView
+                 android:id="@+id/commentUpdated"
                  android:layout_width="wrap_content"
                  android:layout_height="wrap_content"
-                 android:id="@+id/commentUpdated"
+                 android:layout_below="@+id/commentAuthor"
+                 android:layout_alignParentEnd="true"
+                 android:layout_marginTop="-15dp"
+                 android:layout_marginEnd="8dp"
                  android:gravity="center_vertical"
                  android:text="@string/updated_string"
-                 android:layout_marginTop="3dp"
-                 android:layout_below="@+id/commentAuthor"
-                 android:textSize="10sp"/>
+                 android:textSize="10sp" />
 
          </RelativeLayout>
 

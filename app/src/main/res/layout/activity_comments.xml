@@ -2,18 +2,23 @@
 <android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
               android:orientation="vertical"
               android:layout_width="match_parent"
-              android:layout_height="match_parent">
+              android:layout_height="match_parent"
+    android:background="@drawable/paper_fibers"
+    >
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        >
 
 
 
         <RelativeLayout
             android:id="@+id/commentHeadingRelLayout"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:background="#e7ffffff"
+            >
 
 
 
@@ -24,32 +29,39 @@
                 >
 
                 <TextView
-                    android:textStyle="bold"
+                    android:id="@+id/postTitle"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:id="@+id/postTitle"
                     android:layout_marginTop="30dp"
+                    android:gravity="left"
                     android:text="@string/comment_string"
-                    android:gravity="left"/>
+                    android:textColor="#384983"
+                    android:textSize="19sp"
+                    android:textStyle="bold" />
 
                 <TextView
-                    android:textSize="10sp"
+                    android:textSize="12sp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:id="@+id/postAuthor"
                     android:layout_marginTop="3dp"
                     android:text="@string/author_string"
                     android:gravity="left"
-                    android:layout_below="@+id/postTitle"/>
+                    android:layout_below="@+id/postTitle"
+                    android:textColor="#3a50a1"
+
+                    />
 
                 <TextView
                     android:id="@+id/postContent"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
+                    android:layout_height="122dp"
                     android:layout_below="@id/postAuthor"
-                    android:layout_marginTop="3dp"
+                    android:layout_marginTop="5dp"
                     android:gravity="left"
-                    android:text="@string/content_string" />
+                    android:text="@string/content_string"
+                    android:textColor="#2c3143"
+                    android:textSize="16sp" />
 
 
             </RelativeLayout>

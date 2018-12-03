@@ -15,6 +15,8 @@
         android:layout_margin="20dp"
         android:inputType="textMultiLine"
         android:scrollbars="vertical"
-        android:hint="@string/freewrite_draft_placeholder"/>
+        android:hint="@string/freewrite_draft_placeholder"
+        android:backgroundTint="#3268de" />
+    />
 
 </android.support.v4.widget.NestedScrollView>
